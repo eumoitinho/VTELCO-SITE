@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+/* Animation for gradient backgrounds */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-gradient-animate {
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+/* Glow effects */
+.glow-text {
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+}
+
+.glow-text-white {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+}
+
+.shadow-glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.shadow-glow-orange {
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+.shadow-glow-green {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.hover\:shadow-glow-purple:hover {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+}
+
+.hover\:shadow-glow-blue:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.hover\:shadow-glow-orange:hover {
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+}
+
+.hover\:shadow-glow-green:hover {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+}
+
+/* Section illumination */
+.section-illumination {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-illumination::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+}
+
+.section-illumination::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+}
+
+/* Hero section animations */
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideInRight 0.8s forwards;
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideInLeft 0.8s forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Carousel dots */
+.carousel-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Scroll animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r;
+}
+
+.gradient-purple {
+  @apply from-purple-600 to-indigo-600;
+}
+
+.gradient-blue {
+  @apply from-blue-600 to-cyan-600;
+}
+
+.gradient-orange {
+  @apply from-orange-600 to-amber-600;
+}
+
+.gradient-green {
+  @apply from-green-600 to-emerald-600;
+}
+
+/* Illuminated sections */
+.illuminated-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.illuminated-section::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle at center, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.illuminated-section-blue::before {
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+}
+
+.illuminated-section-orange::before {
+  background: radial-gradient(circle at center, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+}
+
+.illuminated-section-green::before {
+  background: radial-gradient(circle at center, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+}
+
